@@ -5,6 +5,8 @@ This repository contains two utility scripts for file management and Git operati
 ## Table of Contents
 1. [file_rename.ipynb: Cross-Platform File Renaming Utility (Jupyter Notebook)](#1-cross-platform-file-renaming-utility-jupyter-notebook)
 2. [flexible_history_rewrite.sh: Git History Rewrite Script](#2-git-history-rewrite-script)
+3. [doc_consolidator.py: File Processing and Code Consolidation Utility](#3-file-processing-and-code-consolidation-utility)
+4. [remove_newlines.py: Newline Removal Utility](#4-newline-removal-utility)
 
 ## 1. Cross-Platform File Renaming Utility (Jupyter Notebook)
 
@@ -137,9 +139,101 @@ git checkout main
 
 Always communicate with your team before using this on a shared repository, as it can cause issues for other contributors.
 
-## General Notes
+## 3. File Processing and Code Consolidation Utility
 
-Both utilities in this repository are powerful tools that can make significant changes to your files or Git history. Always ensure you understand the implications of using these scripts and have proper backups in place before running them.
+**Filename**: `doc_consolidator.py`
 
-For any questions, issues, or contributions, please open an issue or pull request in this repository.
+### Description
 
+This Python script provides versatile functions for file processing tasks, including file concatenation, directory structure generation, backup operations, and code consolidation.
+
+Key features include:
+- Recursive file processing in a directory and its subdirectories
+- Support for multiple file extensions
+- Exclusion of specified folders
+- Safe file reading with multiple encoding attempts
+- Code consolidation for analysis
+
+### Requirements
+
+- Python 3.x
+
+### Installation
+
+1. Save the script as `doc_consolidator.py` in your desired directory.
+2. Ensure you have Python 3.x installed on your system.
+
+### Usage
+
+To use the utility functions, import them into your Python script or Jupyter notebook:
+
+```python
+from utility_scripts import process_files, consolidate_code
+```
+
+#### Code Consolidation
+
+To consolidate code files of specific extensions into a single file:
+
+```python
+output_file = consolidate_code(
+    root_path='/path/to/your/project',
+    extensions=['.py', '.js', '.html'],
+    output_filename='consolidated_code.txt',
+    exclude_folders=['venv', 'node_modules']
+)
+print(f"Consolidated code saved to: {output_file}")
+```
+
+- `root_path`: The directory containing files to be consolidated
+- `extensions`: List of file extensions to include (or a single extension as a string)
+- `output_filename`: (Optional) Name of the output file
+- `exclude_folders`: (Optional) List of folder names to exclude from processing
+
+#### Other File Processing Tasks
+
+For other file processing tasks like generating directory structure or creating backups, use the `process_files` function:
+
+```python
+# Generate directory structure
+structure_file = process_files('structure', '/path/to/your/project', output_filename='project_structure.txt')
+
+# Create backups
+backup_log = process_files('backup', '/path/to/your/project', output_filename='backup_log.txt')
+```
+
+### Notes
+
+- The script includes error handling and safe file reading to manage potential issues during processing.
+- Consolidated output and logs are saved in the current working directory by default.
+
+### Caution
+
+This utility can process a large number of files and make changes to your file system. Always ensure you have backups of your data before running the script, especially when working with important files or large directories.
+
+## 4. Newline Removal Utility
+
+**Filename**: `remove_newlines.py`
+
+### Description
+
+This Python script provides a utility to remove unnecessary newlines from text files, consolidating paragraphs while preserving intentional line breaks between paragraphs.
+
+### Requirements
+
+- Python 3.x
+
+### Usage
+
+To use the newline removal utility:
+
+```python
+python remove_newlines.py <input_filename> [<output_filename>]
+```
+
+If no output filename is provided, the input file will be overwritten with the processed text.
+
+### Notes
+
+This script is useful for cleaning up text files with excessive line breaks, such as those copied from PDFs or web pages.
+It preserves paragraph structure by maintaining double line breaks between paragraphs.
