@@ -3,12 +3,7 @@ import shutil
 from datetime import datetime, timezone
 import re
 from typing import Union, List
-
-import os
-import shutil
-from datetime import datetime, timezone
-import re
-from typing import Union, List
+import sys
 
 def read_file_safe(file_path):
     encodings = ['utf-8', 'latin-1', 'ascii', 'utf-16']
@@ -151,3 +146,15 @@ def consolidate_code(root_path: str, extensions: Union[str, List[str]], output_f
 
     return process_files('concatenate', root_path, extensions, output_filename, exclude_folders)
 
+if __name__ == "__main__":
+    if len(sys.argv) < 3:
+        print("Usage: python3 doc_consolidator.py <root_path> <extensions> [output_filename]")
+        print("Example: python3 doc_consolidator.py /path/to/project '.py,.js' output.txt")
+        sys.exit(1)
+
+    root_path = sys.argv[1]
+    extensions = sys.argv[2].split(',')
+    output_filename = sys.argv[3] if len(sys.argv) > 3 else None
+
+    result = consolidate_code(root_path, extensions, output_filename)
+    print(f"Consolidated code saved to: {result}")

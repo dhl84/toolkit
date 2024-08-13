@@ -56,7 +56,7 @@ If no output filename is provided, the input file will be overwritten with the p
 
 ### File Processing and Code Consolidation Utility
 
-**Function**: `consolidate_code(root_path, extensions, output_filename=None, exclude_folders=["ss", "myenv", "__pycache__", ".git", "node_modules"])`
+**File**: `doc_consolidator.py`
 
 This utility consolidates code files of specified extensions into a single file for analysis.
 
@@ -67,15 +67,35 @@ This utility consolidates code files of specified extensions into a single file 
 - Safe file reading with multiple encoding attempts
 
 #### Usage
+
+You can use this utility in two ways:
+
+1. As a Python function:
+
 ```python
+from doc_consolidator import consolidate_code
+
 output_file = consolidate_code(
     root_path='/path/to/your/project',
     extensions=['.py', '.js', '.html'],
-    output_filename='consolidated_code.txt',
-    exclude_folders=['venv', 'node_modules']
+    output_filename='consolidated_code.txt'
 )
 print(f"Consolidated code saved to: {output_file}")
 ```
+
+2. Directly from the command line:
+
+```bash
+python3 doc_consolidator.py /path/to/project '.py,.js' output.txt
+```
+
+This command will consolidate all `.py` and `.js` files in the `/path/to/project` directory (and its subdirectories) into a file named `output.txt`.
+
+If you omit the output filename, a default name will be generated based on the current date.
+
+#### Notes:
+- By default, the following folders are excluded from processing: "ss", "myenv", "__pycache__", ".git", "node_modules". You can modify this list in the `consolidate_code` function if needed.
+- When using the command-line interface, these default exclusions are applied and cannot be modified without changing the script.
 
 ### Cross-Platform File Renaming Utility (Jupyter Notebook)
 
