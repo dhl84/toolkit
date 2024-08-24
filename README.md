@@ -1,5 +1,6 @@
 # Utility Scripts Repository
 
+<<<<<<< HEAD
 This repository contains a toolkit of utility scripts for file management, Git operations, and code consolidation.
 
 ## Table of Contents
@@ -10,6 +11,14 @@ This repository contains a toolkit of utility scripts for file management, Git o
    3.2. [doc_consolidator: File Processing and Code Consolidation Utility](#file-processing-and-code-consolidation-utility)
    3.3. [file_rename: Cross-Platform File Renaming Utility (Jupyter Notebook)](#cross-platform-file-renaming-utility-jupyter-notebook)
    3.4. [flexible_history_rewrite: Git History Rewrite Script](#git-history-rewrite-script)
+=======
+This repository contains three utility scripts for file management, Git operations, and machine learning tasks.
+
+## Table of Contents
+1. [file_rename.ipynb: Cross-Platform File Renaming Utility (Jupyter Notebook)](#1-cross-platform-file-renaming-utility-jupyter-notebook)
+2. [flexible_history_rewrite.sh: Git History Rewrite Script](#2-git-history-rewrite-script)
+3. [ml.ipynb: Machine Learning URL Prediction Utility (Jupyter Notebook)](#3-machine-learning-url-prediction-utility-jupyter-notebook)
+>>>>>>> b265a6d (ml.ipynb using ML inferences to try to identify patterns in URLs)
 
 ## Installation
 
@@ -150,8 +159,77 @@ git checkout main
 
 Always communicate with your team before using this on a shared repository, as it can cause issues for other contributors.
 
+<<<<<<< HEAD
 ## Notes
 
 - The toolkit contains a mix of Python scripts, a shell script, and a Jupyter notebook.
 - Always ensure you have backups before using these utilities, especially when modifying files or Git history.
 - For detailed usage instructions for each tool, refer to the respective sections above or the comments in the source files.
+=======
+
+## 3. Machine Learning URL Prediction Utility (Jupyter Notebook)
+
+**Filename**: `ml.ipynb`
+
+### Description
+
+This Jupyter notebook contains a machine learning utility for predicting and validating URLs. It uses various techniques including simple inference, K-Nearest Neighbors (KNN), and XGBoost to predict new URLs based on existing patterns.
+
+Key features include:
+- Multiple prediction methods: simple inference, KNN, and XGBoost
+- Iterative prediction process to improve accuracy
+- URL validation and consistency checks
+- Logging of prediction results and statistics
+- Analysis of prediction outcomes
+
+### Requirements
+
+- Python 3.x
+- Jupyter Notebook or JupyterLab
+- Required Python libraries: pandas, numpy, scikit-learn, xgboost, fuzzywuzzy, requests
+
+### Usage
+
+To use the URL prediction utility:
+
+1. Open the `ml.ipynb` notebook in Jupyter Notebook or JupyterLab.
+2. Ensure all required libraries are installed.
+3. Run all cells in the notebook to define the necessary functions and classes.
+4. Use the `train_and_predict_iteratively` function with the path to your CSV file:
+
+```python
+csv_path = 'your_data.csv'
+results = train_and_predict_iteratively(csv_path)
+```
+
+5. The script will iteratively apply different prediction methods and save the results after each iteration.
+
+6. Use the `analyze_xgboost_predictions` function to analyze the results of the XGBoost predictions:
+
+```python
+analyze_xgboost_predictions('iterative_url_predictions_iter_3.csv')
+```
+
+7. To consolidate the results with the original dataset, use the `consolidate_results` function:
+
+```python
+consolidate_results('original_db.csv', 'ml_inferred_urls.csv', 'consolidated_db.csv')
+```
+
+### Notes
+
+- The notebook includes detailed comments and explanations for each part of the script.
+- The prediction process is iterative, applying different methods to improve accuracy.
+- Results are saved after each iteration, allowing for analysis and resumption of the process if needed.
+- The script includes extensive error handling and logging for debugging purposes.
+
+### Caution
+
+This utility processes and modifies data. Always ensure you have backups of your original data before running the script, especially when working with important datasets.
+
+## General Notes
+
+All utilities in this repository are powerful tools that can make significant changes to your files, Git history, or data. Always ensure you understand the implications of using these scripts and have proper backups in place before running them.
+
+For any questions, issues, or contributions, please open an issue or pull request in this repository.
+>>>>>>> b265a6d (ml.ipynb using ML inferences to try to identify patterns in URLs)
