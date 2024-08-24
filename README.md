@@ -18,7 +18,6 @@ This repository contains three utility scripts for file management, Git operatio
 1. [file_rename.ipynb: Cross-Platform File Renaming Utility (Jupyter Notebook)](#1-cross-platform-file-renaming-utility-jupyter-notebook)
 2. [flexible_history_rewrite.sh: Git History Rewrite Script](#2-git-history-rewrite-script)
 3. [ml.ipynb: Machine Learning URL Prediction Utility (Jupyter Notebook)](#3-machine-learning-url-prediction-utility-jupyter-notebook)
->>>>>>> b265a6d (ml.ipynb using ML inferences to try to identify patterns in URLs)
 
 ## Installation
 
@@ -232,4 +231,3 @@ This utility processes and modifies data. Always ensure you have backups of your
 All utilities in this repository are powerful tools that can make significant changes to your files, Git history, or data. Always ensure you understand the implications of using these scripts and have proper backups in place before running them.
 
 For any questions, issues, or contributions, please open an issue or pull request in this repository.
->>>>>>> b265a6d (ml.ipynb using ML inferences to try to identify patterns in URLs)
